@@ -1,15 +1,20 @@
 package com.zuehlke.hamilton;
 
-import java.util.Optional;
+import java.util.stream.Stream;
 
 public class TrafficJam {
 
     public String trafficJam(final String mainRoad, final String[] sideRoads) {
         display(mainRoad, sideRoads);
+        final String newMainRoad = mainRoad.substring(0, mainRoad.indexOf('X') + 1);
+        final StringBuilder result = new StringBuilder();
+        Stream.of(newMainRoad.toCharArray()).forEach(
+                (car) -> {
+                    result.append(car);
+                }
+        );
 
-        // TODO our code
-
-        return "";
+        return result.toString();
     }
 
     public void display(final String mainRoad, final String[] sideRoads) {
